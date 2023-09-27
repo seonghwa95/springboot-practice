@@ -1,4 +1,4 @@
-package org.shinseonghwa.springbootdeveloper;
+package org.shinseonghwa;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
