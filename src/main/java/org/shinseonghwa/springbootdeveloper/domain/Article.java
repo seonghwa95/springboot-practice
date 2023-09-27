@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)  // 기본 생성자 대체 + 접근 제어자 protected
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
