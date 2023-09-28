@@ -18,7 +18,7 @@ public class BlogApiController {
 
     // HTTP 메서드가 POST이면서 전달받은 URL과 동일하면 매핑
     // RequestBody로 요청 본문 값과 매핑
-    @PostMapping
+    @PostMapping("/api/articles")
     public ResponseEntity<Article> addArticle(@RequestBody AddArticleRequest request) {
         Article savedArticle = blogService.save(request);
 
@@ -26,4 +26,12 @@ public class BlogApiController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(savedArticle);
     }
+    
+//    응답 코드 메모
+//    200 OK => 요청이 성공적으로 수행됨
+//    201 Created => 요청이 성공적으로 수행되고, 새로운 리소스가 생성됨
+//    400 Bad Request => 요청 값이 잘못되어 요청에 실패했음
+//    403 Forbidden => 권한이 없어 요청에 실패했음
+//    404 Not Foound => 요청 값으로 찾은 리소스가 없어 요청에 실패했음
+//    500 Internal Server Error => 서버 상에 문제가 있어 요청에 실패했음
 }
