@@ -1,6 +1,5 @@
 package org.shinseonghwa.springbootdeveloper.service;
 
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.shinseonghwa.springbootdeveloper.domain.Article;
 import org.shinseonghwa.springbootdeveloper.dto.AddArticleRequest;
@@ -8,6 +7,7 @@ import org.shinseonghwa.springbootdeveloper.repository.BlogRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor    // final이 붙거나 @NotNull이 붙은 필드의 생성자 추가
 @Service
@@ -23,5 +23,11 @@ public class BlogService {
     // 블로그 글 목록 조회 메서드
     public List<Article> findAll() {
         return blogRepository.findAll();
+    }
+
+    // 블로그 글 조회 메서드
+    public Article findById(long id) {
+        return blogRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
     }
 }
