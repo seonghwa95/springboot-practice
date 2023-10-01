@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.shinseonghwa.springbootdeveloper.domain.Article;
 import org.shinseonghwa.springbootdeveloper.dto.AddArticleRequest;
 import org.shinseonghwa.springbootdeveloper.dto.ArticleResponse;
+import org.shinseonghwa.springbootdeveloper.dto.UpdateArticleRequest;
 import org.shinseonghwa.springbootdeveloper.service.BlogService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -53,6 +54,14 @@ public class BlogApiController {
 
         return ResponseEntity.ok()
                 .build();
+    }
+
+    @PutMapping("/api/articles/{id}")
+    public ResponseEntity<Article> updateArticle(@PathVariable long id, @RequestBody UpdateArticleRequest request) {
+        Article updatedArticle = blogService.update(id, request);
+
+        return ResponseEntity.ok()
+                .body(updatedArticle);
     }
 
 //    응답 코드 메모
