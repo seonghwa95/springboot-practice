@@ -47,6 +47,14 @@ public class BlogApiController {
                 .body(new ArticleResponse(article));
     }
 
+    @DeleteMapping("/api/articles/{id}")
+    public ResponseEntity<Void> deleteArticle(@PathVariable long id) {
+        blogService.delete(id);
+
+        return ResponseEntity.ok()
+                .build();
+    }
+
 //    응답 코드 메모
 //    200 OK => 요청이 성공적으로 수행됨
 //    201 Created => 요청이 성공적으로 수행되고, 새로운 리소스가 생성됨
