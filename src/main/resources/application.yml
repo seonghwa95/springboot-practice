@@ -15,3 +15,7 @@ spring:
   h2:
     console:
       enabled: true
+
+  # 타임리프 실시간 적용
+  thymeleaf:
+    cache: false
