@@ -24,6 +24,12 @@ dependencies {
     // 롬복
     compileOnly 'org.projectlombok:lombok:'
     annotationProcessor 'org.projectlombok:lombok'
+    // 스프링 시큐리티 스타터
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    // 타임리프에서 시큐리티 사용
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+    // 시큐리티 테스트
+    implementation 'org.springframework.security:spring-security-test'
 }
 
 test {
