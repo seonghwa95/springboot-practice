@@ -32,7 +32,7 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeRequests()    // 인증, 인가 설정
-                .requestMatchers("/login", "/sigup", "/user").permitAll()   // 인증, 인가 없이 누구나 접근가능 (permitAll)
+                .requestMatchers("/login", "/signup", "/user").permitAll()   // 인증, 인가 없이 누구나 접근가능 (permitAll)
                 .anyRequest()   // 위에서 설정한 URL 이외(anyRequest)
                 .authenticated()   // 인가는 필요없음, 인증은 필요 (authenticated)
                 .and()
