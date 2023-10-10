@@ -20,3 +20,7 @@ spring:
   # 타임리프 실시간 적용
   thymeleaf:
     cache: false
+
+jwt:
+  issuer: ajufresh@gmail.com
+  secret_key: study-springboot
