@@ -1,7 +1,6 @@
 package org.shinseonghwa.springbootdeveloper.config.jwt;
 
 import io.jsonwebtoken.Jwts;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.shinseonghwa.springbootdeveloper.domain.User;
@@ -16,7 +15,6 @@ import java.util.Date;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class TokenProviderTest {
