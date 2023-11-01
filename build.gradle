@@ -35,6 +35,8 @@ dependencies {
     testImplementation 'org.projectlombok:lombok'
     implementation 'io.jsonwebtoken:jjwt:0.9.1'
     implementation 'javax.xml.bind:jaxb-api:2.3.1'
+    // OAuth2를 사용하기 위한 스타터 추가
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 
     // 이상한 알림이 떠서 추가했다. @ConfigurationProperties 관련 알림같다.
     // spring boot configuration annotation processor not configured
