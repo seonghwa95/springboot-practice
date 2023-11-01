@@ -1,7 +1,11 @@
 package org.shinseonghwa.springbootdeveloper.util;
 
 import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.util.SerializationUtils;
+
+import java.util.Base64;
 
 public class CookieUtil {
 
@@ -11,5 +15,39 @@ public class CookieUtil {
         cookie.setPath("/");
         cookie.setMaxAge(maxAge);
         response.addCookie(cookie);
+    }
+
+    // 쿠키의 이름을 입력받아 쿠키 삭제
+    // 실제 삭제는 아니고 만료 시간을 0으로 변경
+    public static void deleteCookie(HttpServletRequest request, HttpServletResponse response, String name) {
+        Cookie[] cookies = request.getCookies();
+        if (cookies == null) {
+            return;
+        }
+
+        for (Cookie cookie : cookies) {
+            if (name.equals(cookie.getName())) {
+                cookie.setValue("");
+                cookie.setPath("/");
+                cookie.setMaxAge(0);
+
+                response.addCookie(cookie);
+            }
+        }
+    }
+
+    // 객체를 직렬화해 쿠키의 값으로 변환
+    public static String serialize(Object object) {
+        return Base64.getEncoder()
+                .encodeToString(SerializationUtils.serialize(object));
+    }
+
+    // 쿠키를 역직렬화해 객체로 변환
+    public static <T> T deserialize(Cookie cookie, Class<T> cls) {
+        return cls.cast(
+                SerializationUtils.deserialize(
+                        Base64.getUrlDecoder().decode(cookie.getValue())
+                )
+        );
     }
 }
