@@ -7,7 +7,6 @@ import org.shinseonghwa.springbootdeveloper.config.oauth.OAuth2SuccessHandler;
 import org.shinseonghwa.springbootdeveloper.config.oauth.OAuth2UserCustomService;
 import org.shinseonghwa.springbootdeveloper.repository.RefreshTokenRepository;
 import org.shinseonghwa.springbootdeveloper.service.UserService;
-import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -25,6 +24,7 @@ import static org.springframework.boot.autoconfigure.security.servlet.PathReques
 @RequiredArgsConstructor
 @Configuration
 public class WebOAuthSecurityConfig {
+
     private final OAuth2UserCustomService oAuth2UserCustomService;
     private final TokenProvider tokenProvider;
     private final RefreshTokenRepository refreshTokenRepository;
