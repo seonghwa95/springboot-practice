@@ -14,6 +14,7 @@ public class CookieUtil {
         Cookie cookie = new Cookie(name, value);
         cookie.setPath("/");
         cookie.setMaxAge(maxAge);
+
         response.addCookie(cookie);
     }
 
@@ -21,6 +22,7 @@ public class CookieUtil {
     // 실제 삭제는 아니고 만료 시간을 0으로 변경
     public static void deleteCookie(HttpServletRequest request, HttpServletResponse response, String name) {
         Cookie[] cookies = request.getCookies();
+
         if (cookies == null) {
             return;
         }
@@ -38,7 +40,7 @@ public class CookieUtil {
 
     // 객체를 직렬화해 쿠키의 값으로 변환
     public static String serialize(Object object) {
-        return Base64.getEncoder()
+        return Base64.getUrlEncoder()
                 .encodeToString(SerializationUtils.serialize(object));
     }
 
