@@ -3,8 +3,6 @@ package org.shinseonghwa.springbootdeveloper.dto;
 import lombok.Getter;
 import org.shinseonghwa.springbootdeveloper.domain.Article;
 
-import java.time.LocalDateTime;
-
 @Getter
 public class ArticleListViewResponse {
 
